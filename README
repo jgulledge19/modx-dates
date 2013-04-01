@@ -30,7 +30,7 @@ Returns current date/time: 2013-04-01
 Returns: Monday March 25th, 2013
 
 
-Get a date of 1 week before resourse was published (Published on: 2/4/2013):
+Get a date of 1 week before resource was published (Published on: 2/4/2013):
 <br>
 [[Dates?
   &format=`l F jS, Y`
