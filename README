@@ -29,6 +29,16 @@ Returns current date/time: 2013-04-01
 ]]
 Returns: Monday March 25th, 2013
 
+
+Get a date of 1 week before resourse was published (Published on: 2/4/2013):
+<br>
+[[Dates?
+  &format=`l F jS, Y`
+  &strtotime=`[[*publishedon]]`
+  &past=`604800`
+]]
+Returns: Monday February 25th, 2013 
+
 21 days ago from current time (current time for example is April 1, 2013):
 [[Dates?
   &format=`l F jS, Y`
