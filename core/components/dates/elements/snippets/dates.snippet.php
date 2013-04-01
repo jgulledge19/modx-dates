@@ -1,6 +1,6 @@
 <?php
 /**
- * This is a simple snippet that do date calculations 
+ * This is a simple snippet that does date calculations 
  * 
  * [[Dates?
  *   &format=`Y-m-d` default: Y-m-d date: http://www.php.net/manual/en/function.date.php, strftime: http://www.php.net/manual/en/function.strftime.php 
@@ -38,20 +38,22 @@ $future =  $modx->getOption('future', $scriptProperties, null );
 /**
  * turn str into number, only excepts: *
  */
-function getNumber($str) {
-    if ( is_numeric($str) ) {
-        return $str;
-    }
-    $v = 1;
-    // * 
-    $numbers = explode('*', $str);
-    foreach( $numbers as $n ) {
-        $n = trim($n);
-        if ( is_numeric($n) ) {
-            $v *= $n;
+if ( !function_exists('getNumber') ) {
+    function getNumber($str) {
+        if ( is_numeric($str) ) {
+            return $str;
         }
+        $v = 1;
+        // * 
+        $numbers = explode('*', $str);
+        foreach( $numbers as $n ) {
+            $n = trim($n);
+            if ( is_numeric($n) ) {
+                $v *= $n;
+            }
+        }
+        return $v;
     }
-    return $v;
 }
 
 // build time:
