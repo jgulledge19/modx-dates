@@ -1,0 +1,56 @@
+Simple snippet for MODX Revolution
+
+
+This is a simple snippet that does date calculations.  Returns date string in selected format or in Unix Timestamp.
+
+[[Dates?
+   &format=`Y-m-d` default: Y-m-d date: http://www.php.net/manual/en/function.date.php, 
+                    strftime: http://www.php.net/manual/en/function.strftime.php 
+   &function=`` default is date, can be: strftime or date
+   &time=`` - Unix Timestamp default is time()
+   &strtotime=`` default empty, if set it will override the time property 
+                Strings: http://www.php.net/manual/en/function.strtotime.php
+   
+   &past=`` default empty, this is the time to subtract from time/strtotime in seconds 
+                (Mixed) can be (Int) 604800, for 1 week or use asterisk math operator: 3600*24*7  
+   &future=`` default empty, same as past
+   &return=`` default string, can be time for Unix timestamp
+   &toPlaceholder=``
+]]
+
+Examples:
+[[Dates]]
+Returns current date/time: 2013-04-01 
+
+1 week ago from current time (current time for example is April 1, 2013):
+[[Dates?
+  &format=`l F jS, Y`
+  &past=`604800`
+]]
+Returns: Monday March 25th, 2013
+
+21 days ago from current time (current time for example is April 1, 2013):
+[[Dates?
+  &format=`l F jS, Y`
+  &past=`3600*24*21`
+]]
+Returns: Monday March 11th, 2013
+
+21 days ahead from current time (current time for example is April 1, 2013):
+[[Dates?
+  &format=`l F jS, Y`
+  &future=`3600*24*21`
+]]
+Returns: Monday April 22nd, 2013
+
+
+Send it to a placeholder:
+
+[[Dates?
+  &format=`l F jS, Y`
+  &future=`3600*24*21`
+  &toPlaceholder=`myDate`
+]]
+<br>My Date: [[+myDate]]
+
+
